@@ -58,7 +58,7 @@ public class MONPrimitive implements MONElement {
 	}
 	
 	@Override
-	public String getElementData() {
+	public String getDataString() {
 		String conv, out = "";
 		switch(type) {
 			case "Bb":
@@ -91,11 +91,7 @@ public class MONPrimitive implements MONElement {
 			default: return "null";
 		}
 	}
+	
 	@Override
-	public String getElementMeta() {return type.charAt(0)+"\""+name+"\"";}
-	@Override
-	public String getElementType() {return "p"+type;}
-	@Override
-	public String getElementName() {return name;}
-
+	public String getMetaString() {return type.charAt(0)+"\""+name+"\"";}
 }
