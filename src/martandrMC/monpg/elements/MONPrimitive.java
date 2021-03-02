@@ -1,6 +1,6 @@
 package martandrMC.monpg.elements;
 
-import martandrMC.monpg.ConstructionError;
+import martandrMC.monpg.exceptions.ConstructionException;
 
 public class MONPrimitive implements MONElement {
 	
@@ -27,34 +27,34 @@ public class MONPrimitive implements MONElement {
 	private double real_vals; // Float, Double
 	private String str_vals; // String, Null
 	
-	public MONPrimitive(String name, long value, String exact_type) throws ConstructionError {
+	public MONPrimitive(String name, long value, String exact_type) throws ConstructionException {
 		checkType(exact_type, 0);
 		this.name = name;
 		type = exact_type;
 		int_vals = value;
 	}
 	
-	public MONPrimitive(String name, double value, String exact_type) throws ConstructionError {
+	public MONPrimitive(String name, double value, String exact_type) throws ConstructionException {
 		checkType(exact_type, 1);
 		this.name = name;
 		type = exact_type;
 		real_vals = value;
 	}
 	
-	public MONPrimitive(String name, String value) throws ConstructionError {
+	public MONPrimitive(String name, String value) throws ConstructionException {
 		this.name = name;
 		type = value == null?"N":"S";
 		str_vals = value;
 	}
 	
-	private void checkType(String type, int category) throws ConstructionError {
+	private void checkType(String type, int category) throws ConstructionException {
 		String[][] valid_types = {{"Bb","Bc","Bh","Id","Ih","Ld","Lh", "T"}, {"F", "D"}};
 		boolean type_valid = false;
 		for(String s : valid_types[category]) if(type.equals(s)) {
 			type_valid = true;
 			return;
 		}
-		if(!type_valid) throw new ConstructionError();
+		if(!type_valid) throw new ConstructionException();
 	}
 	
 	@Override
