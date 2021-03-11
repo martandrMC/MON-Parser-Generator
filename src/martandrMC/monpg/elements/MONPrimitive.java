@@ -93,5 +93,7 @@ public class MONPrimitive implements MONElement {
 	}
 	
 	@Override
-	public String getMetaString() {return type.charAt(0)+"\""+name+"\"";}
+	public String getSelfMetaString() {return type.charAt(0)+"\""+name+"\"";}
+	@Override
+	public String getContentMetaString() {return null;}
 }

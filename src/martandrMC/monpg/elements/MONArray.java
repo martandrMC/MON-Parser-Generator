@@ -9,8 +9,14 @@ public class MONArray implements MONElement {
 	}
 
 	@Override
-	public String getMetaString() {
+	public String getSelfMetaString() {
+		
+		return null;
+	}
 
+	@Override
+	public String getContentMetaString() {
+		
 		return null;
 	}
 
